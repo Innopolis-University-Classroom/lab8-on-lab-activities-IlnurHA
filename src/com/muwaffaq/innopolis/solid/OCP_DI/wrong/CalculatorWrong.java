@@ -9,16 +9,16 @@ package com.muwaffaq.innopolis.solid.OCP_DI.wrong;
 // DI : high = Abstract class
 // low : classes
 //
- class CalculatorWrong {
+class CalculatorWrong {
     private double left;
     private double right;
 
-    public enum Operation {ADD, SUBTRACT, DIVIDE,MULTIPLICATION}
+    public enum Operation {ADD, SUBTRACT, DIVIDE, MULTIPLICATION}
 
     /// ❌ ❌ ❌ ❌
     /// this function violates the OP principle
-    /// because it depend on concrete classes enum
-    public  double calculate(Operation operation) {
+    /// because it depends on concrete classes enum
+    public double calculate(Operation operation) {
         double result;
         switch (operation) {
             case ADD:
@@ -27,9 +27,11 @@ package com.muwaffaq.innopolis.solid.OCP_DI.wrong;
             case SUBTRACT:
                 result = left - right;
                 break;
-            default:
             case DIVIDE:
                 result = left / right;
+                break;
+            default:
+                result = left * right;
                 break;
         }
         return result;
